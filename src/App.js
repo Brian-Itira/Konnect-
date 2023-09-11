@@ -1,13 +1,21 @@
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen";
-import "./styles.css";
-import { UserProvider } from "./UserStateContext";
+import HomeScreen from "./screens/HomeScreen"; // Create this component
+import { UserProvider } from "./UserStateContext"; // Import UserProvider
 
-const App = () => {
+function App() {
   return (
     <UserProvider>
-      <LoginScreen />
+      <Router>
+        <Routes> {/* Use <Routes> here */}
+          <Route path="/" element={<LoginScreen />} />
+          <Route path="/home" element={<HomeScreen />} />
+        </Routes>
+      </Router>
     </UserProvider>
   );
-};
+}
 
 export default App;
