@@ -2,7 +2,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginScreen from "./screens/LoginScreen";
-import HomeScreen from "./screens/HomeScreen"; // Create this component
+import Chat from "./screens/Chat";
 import { UserProvider } from "./UserStateContext"; // Import UserProvider
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Router>
         <Routes> {/* Use <Routes> here */}
           <Route path="/" element={<LoginScreen />} />
-          <Route path="/home" element={<HomeScreen />} />
+          <Route path="/Chat" element={<Chat />} />
         </Routes>
       </Router>
     </UserProvider>

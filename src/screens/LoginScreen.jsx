@@ -1,8 +1,7 @@
 import React from "react";
 import { signInWithGoogle } from "../Firebase";
 import { useUser } from "../UserStateContext";
-import { Link } from 'react-router-dom';
-import HomeScreen from "./HomeScreen";
+import Chat from "./Chat";
 
 import '../styles/Login.css'
 
@@ -22,7 +21,7 @@ const LoginScreen = () => {
     
     {user ? (
       <div>
-        <HomeScreen/>
+        <Chat/>
         
       </div>
     ) : (
