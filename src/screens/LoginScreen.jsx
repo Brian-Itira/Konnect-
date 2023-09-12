@@ -1,7 +1,8 @@
 import React from "react";
-import { signInWithGoogle, signOut } from "../Firebase";
+import { signInWithGoogle } from "../Firebase";
 import { useUser } from "../UserStateContext";
 import { Link } from 'react-router-dom';
+import HomeScreen from "./HomeScreen";
 
 import '../styles/Login.css'
 
@@ -12,9 +13,7 @@ const LoginScreen = () => {
     signInWithGoogle();
   };
 
-  const handleSignOutClick = () => {
-    signOut();
-  };
+
 
   return (
 
@@ -23,8 +22,7 @@ const LoginScreen = () => {
     
     {user ? (
       <div>
-        <p>{user.name}</p>
-        <button onClick={handleSignOutClick}>Sign Out</button>
+        <HomeScreen/>
         
       </div>
     ) : (
@@ -37,21 +35,7 @@ const LoginScreen = () => {
     )}
   </div>
 
-  <div className='left-image-container'>
 
-  <img className='left-image' src="https://i.ibb.co/Z2Xnv4P/ideogram-1.jpg" alt="ideogram-1" border="0"/>
-
-  </div>
-
-
-
-  <div className='right-image-container'>
-    
-    
-
-  <img className='right-image' src="https://i.ibb.co/FhG2Nrx/k-logo.png" alt="logo-k" border="0"/>
-
-  </div>
 
     </>
    
