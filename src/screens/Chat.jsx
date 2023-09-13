@@ -1,15 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { app } from '../Firebase'; 
+import { app, signOut} from '../Firebase'; 
 
 import { getFirestore, collection, onSnapshot, addDoc } from 'firebase/firestore';
+
+import { useUser } from '../UserStateContext';
 
 const firestore = getFirestore(app);
 
 import '../styles/Chat.css';
 
+
+
 const Chat = () => {
+
+  const handleSignout = async () => {
+    signOut();
+ 
+  }
+
+  const user = useUser()
+
+
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+
 
   useEffect(() => {
     const messageRef = collection(firestore, 'messages');
@@ -42,7 +56,10 @@ const Chat = () => {
     <div>
       <div>
         {messages.map((message) => (
-          <div key={message.id}>{message.text}</div>
+          <div key={message.id}>{message.text}
+          <p>{user.name}</p>
+          </div>
+          
         ))}
       </div>
       <div>
@@ -53,6 +70,7 @@ const Chat = () => {
         />
         <button onClick={sendMessage}>Send</button>
       </div>
+      <button onClick={handleSignout}>signout</button>
     </div>
   );
 };
