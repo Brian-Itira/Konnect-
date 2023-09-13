@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { app } from '../Firebase'; // Assuming you have initialized Firebase app as 'app'
+import { app } from '../Firebase'; 
 
 import { getFirestore, collection, onSnapshot, addDoc } from 'firebase/firestore';
 
